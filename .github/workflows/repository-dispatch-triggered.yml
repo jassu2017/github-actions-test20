@@ -13,6 +13,7 @@ jobs:
       - name: checkout 
         uses: actions/checkout@v2
       - name: run the script
+        if: github.event.action == 'event-demo'
         run: |
            chmod +x scripts/param-script.sh
            ./scripts/param-script.sh ${{ github.event.inputs.name }}
