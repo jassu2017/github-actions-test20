@@ -40,6 +40,9 @@ jobs:
              ###  Control will jump here if $DIR does NOT exists ###
           echo "Error: ${DIR} not found. Can not continue."
           fi 
+          
+          echo "list files"
+          ls -ltra
       
       - name: commit
         run: |
