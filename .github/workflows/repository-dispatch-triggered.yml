@@ -17,28 +17,32 @@ jobs:
        # run: |
         #   chmod +x scripts/param-script.sh
          #  ./scripts/param-script.sh ${{ github.event.inputs.name }}
-         
-      - name: create directory if it is not present
-        run: |
-          if [ ! -e new_folder ] 
-          then
-            mkdir new_folder            
-          else
-            echo "new_folder directory is already present."
-          fi
-          
       - name: setup git config
         run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
           git config user.name "jassu2017"
-          git config user.email "jayshree.prasad@live.com"
+          git config user.email "jayshree.prasad@live.com"   
           
-      - name: commit
+      - name: create directory if it is not present
         run: |
+          if [ ! -e new_folder ] 
+          then
+            mkdir new_folder 
+            git add .
+            git commit -m "new_folder "
+            git push origin main
+          else
+            echo "new_folder directory is already present."
+          fi
+          
+    
+          
+      #- name: commit
+       # run: |
           # Stage the file, commit and push
-          git add .
-          git commit -m "new_folder "
-          git push origin main
+        #  git add .
+         # git commit -m "new_folder "
+          #git push origin main
             
           
           
