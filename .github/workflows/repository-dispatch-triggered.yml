@@ -38,13 +38,14 @@ jobs:
              ### Take action if $DIR exists ###
            echo "creating folder in  ${DIR}..."
            mkdir "new_folder"
+           cd new_folder
+           touch .keep
           else
              ###  Control will jump here if $DIR does NOT exists ###
           echo "Error: ${DIR} not found. Can not continue."
           fi 
           
-          cd new_folder
-          touch .keep
+          
           
           echo "list files"
           ls -ltra
