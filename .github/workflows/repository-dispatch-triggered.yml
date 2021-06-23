@@ -43,6 +43,9 @@ jobs:
           echo "Error: ${DIR} not found. Can not continue."
           fi 
           
+          cd new_folder
+          touch .keep
+          
           echo "list files"
           ls -ltra
       
