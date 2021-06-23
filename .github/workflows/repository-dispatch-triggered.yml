@@ -20,7 +20,7 @@ jobs:
          
       - name: create directory if it is not present
         run: |
-          if [[ ! -e new_folder]] ; then
+          if [[ ! -e new_folder]] then
             mkdir new_folder
             
           else
