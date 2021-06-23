@@ -47,7 +47,7 @@ jobs:
       - name: commit
         run: |
           # Stage the file, commit and push
-          git add .
+          git add new_folder
           git commit -m "new_folder "
           git push origin main
           
