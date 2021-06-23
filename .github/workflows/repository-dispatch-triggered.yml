@@ -49,7 +49,7 @@ jobs:
           # Stage the file, commit and push
           git add new_folder
           git commit -m "new_folder "
-          git push origin main
+          git push
           
       - name: checkout 
         uses: actions/checkout@v2
