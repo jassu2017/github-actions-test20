@@ -32,8 +32,8 @@ jobs:
           
       - name: create directory if it is not present
         run: |
-          DIR="/home/runner/work/github-actions-test20/github-actions-test20"
-          if [ -d "$DIR" ] 
+          DIR="/home/runner/work/github-actions-test20/github-actions-test20/new_folder"
+          if [ ! -d "$DIR" ] 
            then
              ### Take action if $DIR exists ###
            echo "creating folder in  ${DIR}..."
