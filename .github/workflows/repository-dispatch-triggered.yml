@@ -30,18 +30,26 @@ jobs:
           
       - name: create directory if it is not present
         run: |
-          if [ ! -e new_folder ] 
-          then
-            mkdir new_folder 
-            git add .
-            git commit -m "new_folder "
-            git push origin main
+          DIR="/home/runner/work/github-actions-test20/github-actions-test20"
+          if [ -d "$DIR" ] 
+             ### Take action if $DIR exists ###
+          echo "creating folder in  ${DIR}..."
+          mkdir "new_folder"
           else
-            echo "new_folder directory is already present."
-          fi
-    
+             ###  Control will jump here if $DIR does NOT exists ###
+          echo "Error: ${DIR} not found. Can not continue."
+          fi 
+      
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add .
+          git commit -m "new_folder "
+          git push origin main
+          
       - name: checkout 
         uses: actions/checkout@v2
+  
         
       - name: run the script
         run: |
@@ -49,12 +57,7 @@ jobs:
           pwd
           echo "lists of files"
           ls -ltra
-      #- name: commit
-       # run: |
-          # Stage the file, commit and push
-        #  git add .
-         # git commit -m "new_folder "
-          #git push origin main
+      
             
           
           
