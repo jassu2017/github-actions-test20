@@ -13,6 +13,8 @@ jobs:
           
       - name: checkout 
         uses: actions/checkout@v2
+        with:
+         ref: ${{ github.head_ref }}
       
       - name: run the script
         run: |
@@ -44,12 +46,11 @@ jobs:
           echo "list files"
           ls -ltra
       
-      - name: commit
-        run: |
-          # Stage the file, commit and push
-          git add new_folder
-          git commit -m "new_folder "
-          git push
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          repository: .
+          commit_message: added new_folder
+          push_options: '--force'
           
       - name: checkout 
         uses: actions/checkout@v2
