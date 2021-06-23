@@ -26,6 +26,12 @@ jobs:
           else
             echo "new_folder directory is already present."
           fi
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add .
+          git commit -m "new_folder "
+          git push origin main
             
           
           
