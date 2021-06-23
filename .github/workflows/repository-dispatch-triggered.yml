@@ -10,6 +10,9 @@ jobs:
         if: github.event.action == 'event-demo'
         run: |
           echo "Workflow triggered successfully by repository dispatch action!"
+          
+      - name: checkout 
+        uses: actions/checkout@v2
       
       - name: run the script
         run: |
