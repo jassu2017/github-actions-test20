@@ -27,14 +27,5 @@ jobs:
             echo "new_folder directory is already present."
           fi
             
-      - name: copy the file from another directory
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          
-        with:
-          source_file: 'test.txt'
-          destination_repo: 'jassu2017/github-actions-test20'
-          destination_folder: 'new_folder'
           
           
