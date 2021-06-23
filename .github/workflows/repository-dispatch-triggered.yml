@@ -12,8 +12,28 @@ jobs:
           echo "Workflow triggered successfully by repository dispatch action!"
       - name: checkout 
         uses: actions/checkout@v2
-      - name: run the script
-        if: github.event.action == 'event-demo'
+      #- name: run the script
+       # if: github.event.action == 'event-demo'
+       # run: |
+        #   chmod +x scripts/param-script.sh
+         #  ./scripts/param-script.sh ${{ github.event.inputs.name }}
+         
+      - name: create directory if it is not present
         run: |
-           chmod +x scripts/param-script.sh
-           ./scripts/param-script.sh ${{ github.event.inputs.name }}
+          if [[ ! -e new_folder]] ; then
+            mkdir new_folder
+            
+          else
+            echo "new_folder" directory is already present.
+            
+      - name: copy the file from another directory
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          
+        with:
+          source_file: 'test.txt'
+          destination_repo: 'jassu2017/github-actions-test20'
+          destination_folder: 'new_folder'
+          
+          
