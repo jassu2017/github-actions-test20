@@ -32,9 +32,10 @@ jobs:
         run: |
           DIR="/home/runner/work/github-actions-test20/github-actions-test20"
           if [ -d "$DIR" ] 
+           then
              ### Take action if $DIR exists ###
-          echo "creating folder in  ${DIR}..."
-          mkdir "new_folder"
+           echo "creating folder in  ${DIR}..."
+           mkdir "new_folder"
           else
              ###  Control will jump here if $DIR does NOT exists ###
           echo "Error: ${DIR} not found. Can not continue."
