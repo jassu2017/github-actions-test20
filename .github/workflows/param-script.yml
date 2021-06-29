@@ -1,12 +1,6 @@
 name: parameterized shell script 
 
-on: 
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Enter the name'
-        required: true
-        default: 'github-actions'
+on: push
 
       
 
@@ -20,4 +14,5 @@ jobs:
       - name: run the script
         run: |
            chmod +x scripts/param-script.sh
-           ./scripts/param-script.sh ${{ github.event.inputs.name }}
+           param1 = "jayshree"
+           ./scripts/param-script.sh "${param1}" 
