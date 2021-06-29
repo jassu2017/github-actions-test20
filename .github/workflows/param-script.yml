@@ -1,6 +1,8 @@
 name: parameterized shell script 
 
-on: push
+on: 
+   schedule: 
+      - cron: '6 * * * *'
 
       
 
